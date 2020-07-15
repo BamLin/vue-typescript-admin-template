@@ -34,6 +34,7 @@ Vue.use(Router)
     activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set
   }
 */
+// todo test~~~
 
 /**
   ConstantRoutes
