@@ -4,6 +4,7 @@ import { UserModule } from '@/store/modules/user'
 
 const service = axios.create({
   baseURL: 'http://localhost:9528/mock-api/v1',
+  // test
   // baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000
 })
