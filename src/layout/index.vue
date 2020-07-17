@@ -9,6 +9,8 @@
       @click="handleClickOutside"
     />
     <sidebar class="sidebar-container" />
+
+    <!--   -->
     <div
       :class="{hasTagsView: showTagsView}"
       class="main-container"
@@ -17,6 +19,11 @@
         <navbar />
         <tags-view v-if="showTagsView" />
       </div>
+      <!--  app-Main ~~~~~    -->
+      <!--  app-Main ~~~~~    -->
+      <!--  app-Main ~~~~~    -->
+      <!--  app-Main ~~~~~    -->
+      <!--  app-Main ~~~~~    -->
       <app-main />
       <right-panel v-if="showSettings">
         <settings />

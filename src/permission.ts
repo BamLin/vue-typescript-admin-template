@@ -39,9 +39,11 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
           await UserModule.GetUserInfo()
           const roles = UserModule.roles
           // Generate accessible routes map based on role
+          console.debug(roles)
           PermissionModule.GenerateRoutes(roles)
           // Dynamically add accessible routes
-          router.addRoutes(PermissionModule.dynamicRoutes)
+          console.debug(PermissionModule.dynamicRoutes)
+          router.addRoutes(PermissionModule.dynamicRoutes) // todo addRoutes
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
           next({ ...to, replace: true })

@@ -116,7 +116,6 @@ export default class extends Vue {
 
 .show {
   transition: all .3s cubic-bezier(.7, .3, .1, 1);
-
   .rightPanel-background {
     z-index: 20000;
     opacity: 1;
