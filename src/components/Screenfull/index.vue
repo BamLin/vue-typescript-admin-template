@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import screenfull from 'screenfull'
+import screenfull from 'screenfull' // screenfull  这是个 库～～～
 import { Component, Vue } from 'vue-property-decorator'
 
 const sf = screenfull

@@ -48,7 +48,7 @@ export const constantRoutes: RouteConfig[] = [
     meta: { hidden: true },
     children: [
       {
-        path: '/redirect/:path(.*)',
+        path: '/redirect/:path(.*)', // todo 传入数据一般为 /redirect' + fullPath
         component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/index.vue')
       }
     ]
