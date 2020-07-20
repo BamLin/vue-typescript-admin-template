@@ -6,6 +6,10 @@ const WIDTH = 992 // refer to Bootstrap's responsive design
 @Component({
   name: 'ResizeMixin'
 })
+
+/**
+ * 这个 ts的作用是什么？？？
+ */
 export default class extends Vue {
   get device() {
     return AppModule.device
