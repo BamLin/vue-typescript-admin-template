@@ -11,7 +11,7 @@ import App from '@/App.vue'
 import store from '@/store'
 import router from '@/router'
 import '@/icons/components'
-import '@/permission'
+import '@/permission' // 直接引入即可使用
 
 Vue.use(ElementUI)
 Vue.use(SvgIcon, {

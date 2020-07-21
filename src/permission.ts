@@ -7,11 +7,14 @@ import { UserModule } from '@/store/modules/user'
 
 NProgress.configure({ showSpinner: false })
 
+// import '@/permission' // 直接引入即可使用
+// main.ts中使用
+
 const whiteList = ['/login']
 
 router.beforeEach(async(to: Route, _: Route, next: any) => {
   // Start progress bar
-  NProgress.start()
+  NProgress.start() // todo 哪里被调用
 
   // Determine whether the user has logged in
   if (UserModule.token) {
