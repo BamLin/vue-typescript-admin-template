@@ -46,7 +46,7 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
           router.addRoutes(PermissionModule.dynamicRoutes) // todo addRoutes
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
-          next({ ...to, replace: true })
+          next({ ...to, replace: true }) // todo 作用？？？
         } catch (err) {
           // Remove token and redirect to login page
           UserModule.ResetToken()

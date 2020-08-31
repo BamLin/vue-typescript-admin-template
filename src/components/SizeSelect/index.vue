@@ -65,6 +65,9 @@ export default class extends Vue {
     console.debug(this.$route)
     console.debug(this.$router)
     console.debug(fullPath)
+    // todo https://cn.vuejs.org/v2/api/index.html#vm-nextTick
+    // todo 将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。
+    // todo   它跟全局方法 Vue.nextTick 一样，不同的是回调的 this 自动绑定到调用它的实例上。
     this.$nextTick(() => {
       this.$router.replace({
         // 这里用 push 也有同样的效果，并

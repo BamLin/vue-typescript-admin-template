@@ -22,7 +22,9 @@ export const filterAsyncRoutes = (routes: RouteConfig[], roles: string[]) => {
   const res: RouteConfig[] = []
   // todo forEach 遍历
   routes.forEach(route => {
-    const r = { ...route }
+    console.debug(route);
+    // const r = { ...route } // todo
+    const r = route
     console.debug("==== filterAsyncRoutes ====")
     console.debug(r)
     console.debug(roles)
@@ -65,6 +67,8 @@ class Permission extends VuexModule implements IPermissionState {
       // const roles = UserModule.roles
       console.debug(roles)
       accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+      console.debug("asdfasdfasdfasd")
+      console.debug(accessedRoutes);
     }
     this.SET_ROUTES(accessedRoutes)
   }
