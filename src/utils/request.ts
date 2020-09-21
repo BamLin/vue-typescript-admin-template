@@ -20,7 +20,7 @@ service.interceptors.request.use(
   (error) => {
     Promise.reject(error)
   }
-)
+);
 
 // Response interceptors
 service.interceptors.response.use(
@@ -33,13 +33,13 @@ service.interceptors.response.use(
     // code == 50004: invalid user (user not exist)
     // code == 50005: username or password is incorrect
     // You can change this part for your own usage.
-    const res = response.data
+    const res = response.data;
     if (res.code !== 20000) {
       Message({
         message: res.message || 'Error',
         type: 'error',
         duration: 5 * 1000
-      })
+      });
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         MessageBox.confirm(
           '你已被登出，可以取消继续留在该页面，或者重新登录',
