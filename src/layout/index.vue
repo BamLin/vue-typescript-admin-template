@@ -1,13 +1,10 @@
 <template>
-  <div
-    :class="classObj"
-    class="app-wrapper"
-  >
+  <div :class="classObj" class="app-wrapper">
     <div
       v-if="classObj.mobile && sidebar.opened"
       class="drawer-bg"
       @click="handleClickOutside"
-    />
+    ></div>
     <sidebar class="sidebar-container" />
     <div class="main-container">
       <navbar />
@@ -17,19 +14,19 @@
 </template>
 
 <script lang="ts">
-import { Component } from 'vue-property-decorator'
-import { mixins } from 'vue-class-component'
-import { DeviceType, AppModule } from '@/store/modules/app'
-import { AppMain, Navbar, Sidebar } from './components'
-import ResizeMixin from './mixin/resize'
+import { Component } from "vue-property-decorator";
+import { mixins } from "vue-class-component";
+import { DeviceType, AppModule } from "@/store/modules/app";
+import { AppMain, Navbar, Sidebar } from "./components";
+import ResizeMixin from "./mixin/resize";
 
 @Component({
-  name: 'Layout',
+  name: "Layout",
   components: {
     AppMain,
     Navbar,
-    Sidebar
-  }
+    Sidebar,
+  },
 })
 export default class extends mixins(ResizeMixin) {
   get classObj() {
@@ -37,12 +34,12 @@ export default class extends mixins(ResizeMixin) {
       hideSidebar: !this.sidebar.opened,
       openSidebar: this.sidebar.opened,
       withoutAnimation: this.sidebar.withoutAnimation,
-      mobile: this.device === DeviceType.Mobile
-    }
+      mobile: this.device === DeviceType.Mobile,
+    };
   }
 
   private handleClickOutside() {
-    AppModule.CloseSideBar(false)
+    AppModule.CloseSideBar(false);
   }
 }
 </script>
@@ -67,7 +64,7 @@ export default class extends mixins(ResizeMixin) {
 
 .main-container {
   min-height: 100%;
-  transition: margin-left .28s;
+  transition: margin-left 0.28s;
   margin-left: $sideBarWidth;
   position: relative;
 }
@@ -102,7 +99,7 @@ export default class extends mixins(ResizeMixin) {
   }
 
   .sidebar-container {
-    transition: transform .28s;
+    transition: transform 0.28s;
     width: $sideBarWidth !important;
   }
 

@@ -8,11 +8,7 @@
       fit
       highlight-current-row
     >
-      <el-table-column
-        align="center"
-        label="ID"
-        width="95"
-      >
+      <el-table-column align="center" label="ID" width="95">
         <template slot-scope="scope">
           {{ scope.$index }}
         </template>
@@ -22,20 +18,12 @@
           {{ scope.row.title }}
         </template>
       </el-table-column>
-      <el-table-column
-        label="Author"
-        width="180"
-        align="center"
-      >
+      <el-table-column label="Author" width="180" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.author }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="Pageviews"
-        width="110"
-        align="center"
-      >
+      <el-table-column label="Pageviews" width="110" align="center">
         <template slot-scope="scope">
           {{ scope.row.pageviews }}
         </template>
@@ -68,46 +56,48 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { getArticles } from '@/api/articles'
-import { IArticleData } from '@/api/types'
+import { Component, Vue } from "vue-property-decorator";
+import { getArticles } from "@/api/articles";
+import { IArticleData } from "@/api/types";
 
 @Component({
-  name: 'Table',
+  name: "Table",
   filters: {
     statusFilter: (status: string) => {
       const statusMap: { [key: string]: string } = {
-        published: 'success',
-        draft: 'gray',
-        deleted: 'danger'
-      }
-      return statusMap[status]
+        published: "success",
+        draft: "gray",
+        deleted: "danger",
+      };
+      return statusMap[status];
     },
     parseTime: (timestamp: string) => {
-      return new Date(timestamp).toISOString()
-    }
-  }
+      return new Date(timestamp).toISOString();
+    },
+  },
 })
 export default class extends Vue {
-  private list: IArticleData[] = []
-  private listLoading = true
+  private list: IArticleData[] = [];
+
+  private listLoading = true;
+
   private listQuery = {
     page: 1,
-    limit: 20
-  }
+    limit: 20,
+  };
 
   created() {
-    this.getList()
+    this.getList();
   }
 
   private async getList() {
-    this.listLoading = true
-    const { data } = await getArticles(this.listQuery)
-    this.list = data.items
+    this.listLoading = true;
+    const { data } = await getArticles(this.listQuery);
+    this.list = data.items;
     // Just to simulate the time of the request
     setTimeout(() => {
-      this.listLoading = false
-    }, 0.5 * 1000)
+      this.listLoading = false;
+    }, 0.5 * 1000);
   }
 }
 </script>
